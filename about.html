@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="À propos de TISANATURE — Notre histoire, nos valeurs et notre mission au cœur de Dakar, Sénégal.">
+  <meta name="theme-color" content="#1C3D28">
+  <title>À Propos — TISANATURE · Dakar</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Karla:wght@300;400;500;600;700;800&family=Cormorant:ital,wght@1,300;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/redesign_v2.css?v=5">
+</head>
+
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-modern" aria-hidden="true">
+    <div class="marquee-modern-track">
+      <span>T I S A N A T U R E</span><span>&middot;</span>
+      <span>N O T R E &middot; H I S T O I R E</span><span>&middot;</span>
+      <span>S A V O I R &middot; F A I R E</span><span>&middot;</span>
+      <span>1 0 0 % &middot; N A T U R E L</span><span>&middot;</span>
+      <span>T I S A N A T U R E</span><span>&middot;</span>
+      <span>N O T R E &middot; H I S T O I R E</span><span>&middot;</span>
+      <span>S A V O I R &middot; F A I R E</span><span>&middot;</span>
+      <span>1 0 0 % &middot; N A T U R E L</span><span>&middot;</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html" aria-label="TISANATURE accueil">
+        <div class="nav-logo-name">TISANATURE</div>
+        <div class="nav-logo-sub">Beauty &amp; Wellness · Dakar</div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#products-anchor">Épicerie</a></li>
+        <li><a href="cosmetiques.html">Cosmétiques</a></li>
+        <li><a href="index.html#services-section">Services</a></li>
+        <li><a href="about.html" aria-current="page">À Propos</a></li>
+      </ul>
+      <div class="nav-right">
+        <a class="nav-tel" href="tel:+221775671821">+221 77 567 1821</a>
+        <a href="login.html" id="nav-auth-btn">Connexion</a>
+        <button class="nav-cart" onclick="toggleCart()" aria-label="Panier" id="cart-btn">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu" id="burger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <ul role="list">
+        <li><a href="index.html#products-anchor" onclick="toggleMenu()">Épicerie</a></li>
+        <li><a href="cosmetiques.html" onclick="toggleMenu()">Cosmétiques</a></li>
+        <li><a href="index.html#services-section" onclick="toggleMenu()">Services</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li id="mobile-auth-links-wrapper">
+          <ul id="mobile-auth-links">
+            <li><a href="login.html">Connexion</a></li>
+            <li><a href="signup.html">S'inscrire</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO PAGE -->
+  <section class="page-hero foody-style" aria-label="À propos de TISANATURE">
+    <div class="page-hero-inner">
+      <nav class="page-breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">À Propos</span>
+      </nav>
+      <div class="page-hero-label">
+        <span class="label-dot" aria-hidden="true"></span> Notre Histoire
+      </div>
+      <h1 class="hero-title">Une passion pour<br>la nature <em>authentique</em></h1>
+      <p class="hero-subtitle">Depuis 2020, TISANATURE célèbre le pouvoir des plantes et cultive un savoir-faire
+        artisanal ancré dans la richesse de la biodiversité africaine.</p>
+    </div>
+  </section>
+
+  <!-- NUMBERS BAND -->
+  <div class="numbers-band">
+    <div class="numbers-inner">
+      <div class="num-item reveal">
+        <div class="num-val">2020</div>
+        <div class="num-label">Année de fondation</div>
+      </div>
+      <div class="num-item reveal" style="transition-delay:.08s">
+        <div class="num-val">30+</div>
+        <div class="num-label">Produits Naturels</div>
+      </div>
+      <div class="num-item reveal" style="transition-delay:.16s">
+        <div class="num-val">100%</div>
+        <div class="num-label">Ingrédients Naturels</div>
+      </div>
+      <div class="num-item reveal" style="transition-delay:.24s">
+        <div class="num-val">5 ★</div>
+        <div class="num-label">Satisfaction Clients</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT CONTENT -->
+  <div class="page-body">
+
+    <!-- Section 1 : Notre histoire -->
+    <div class="about-grid reveal">
+      <div class="reveal">
+        <span class="about-label">Notre Histoire</span>
+        <h2 class="about-title">Nés de la passion</h2>
+        <div class="prose">
+          <p class="about-body">TISANATURE est née en 2020 d'une conviction profonde : la nature offre tout ce dont
+            notre corps a besoin pour s'épanouir. Fondée à Dakar, notre marque puise dans l'immense richesse botanique
+            de l'Afrique et du monde entier pour créer des produits authentiques, efficaces et respectueux.</p>
+          <p class="about-body">Chaque tisane, chaque soin est le fruit d'une recherche minutieuse, d'un sourcing
+            éthique et d'une formulation artisanale pensée pour préserver les principes actifs des plantes à leur état
+            le plus pur.</p>
+        </div>
+        <div class="about-stats-row">
+          <div class="about-stat-card">
+            <div class="about-stat-val">4 ans</div>
+            <div class="about-stat-lbl">d'expertise</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-val">Dakar</div>
+            <div class="about-stat-lbl">Cœur du Sénégal</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <img class="about-img" src="images/labo.png" alt="Atelier de préparation des produits TISANATURE"
+          onerror="this.style.background='var(--pine)';this.removeAttribute('src')">
+        <div class="about-img-badge">
+          <div class="about-img-badge-val">2020</div>
+          <div class="about-img-badge-label">Fondée à Dakar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider reveal">
+      <div class="div-line"></div>
+      <span class="div-ornament">Nos Valeurs</span>
+      <div class="div-line"></div>
+    </div>
+
+    <!-- Section 2 : Valeurs -->
+    <div class="reveal">
+      <div class="center-head">
+        <span class="about-label">Ce qui nous définit</span>
+        <h2 class="about-title">Ce en quoi nous <em>croyons</em></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-number" aria-hidden="true">01</div>
+          <div class="value-title">100% Naturel</div>
+          <div class="value-desc">Chaque ingrédient est soigneusement sélectionné pour sa pureté et son efficacité.
+            Zéro produit chimique nocif, zéro compromis.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-number" aria-hidden="true">02</div>
+          <div class="value-title">Artisanal</div>
+          <div class="value-desc">Préparé en petites quantités, à la main, pour garantir la fraîcheur et préserver tous
+            les bienfaits actifs des plantes.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-number" aria-hidden="true">03</div>
+          <div class="value-title">Ancrage Local</div>
+          <div class="value-desc">Fiers de nos racines sénégalaises, nous cultivons et valorisons le savoir-faire
+            africain dans chaque formulation.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-number" aria-hidden="true">04</div>
+          <div class="value-title">Durabilité</div>
+          <div class="value-desc">Emballages éco-responsables, approvisionnement éthique et pratiques respectueuses pour
+            préserver notre environnement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider reveal" style="padding:3.5rem 0">
+      <div class="div-line"></div>
+      <span class="div-ornament">Notre Engagement</span>
+      <div class="div-line"></div>
+    </div>
+
+    <!-- Section 3 : Mission -->
+    <div class="about-grid reverse reveal" style="margin-bottom:0">
+      <div class="about-img-wrap">
+        <img class="about-img" src="images/creme-cheveux.jpg" alt="Soins naturels pour cheveux TISANATURE"
+          onerror="this.style.background='var(--moss)';this.removeAttribute('src')">
+      </div>
+      <div>
+        <div class="about-label">Notre Mission</div>
+        <h2 class="about-title">Rendre la nature<br><em>accessible</em> à tous</h2>
+        <p class="about-body">Notre mission est simple : offrir à chaque personne l'accès à des soins naturels de
+          qualité premium, formulés avec intégrité et livrés avec soin jusqu'à votre porte.</p>
+        <p class="about-body" style="margin-top:1rem">Nous croyons que prendre soin de soi ne devrait pas se faire au
+          détriment de la santé ni de la planète. C'est pourquoi chaque produit TISANATURE est une promesse : pure,
+          efficace et honnête.</p>
+        <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="index.html#products-anchor" class="btn-primary"
+            style="text-decoration:none;display:inline-flex">Explorer la collection</a>
+          <!-- FIX : lien "Nous contacter" transformé en vrai <a> avec text-decoration:none
+               (était stylistiquement un lien mais sémantiquement ambigu avec btn-ghost) -->
+          <a href="contact.html"
+            style="font-size:0.64rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);display:inline-flex;align-items:center;gap:0.6rem;text-decoration:none;transition:color 0.25s;padding:1rem 0"
+            onmouseover="this.style.color='var(--fern)'" onmouseout="this.style.color='var(--text-muted)'">
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-overlay" aria-hidden="true"></div>
+    <div class="cta-band-inner reveal">
+      <span class="about-label" style="color:var(--ivory);opacity:0.6">Prêt à commencer ?</span>
+      <h2 class="about-title" style="color:var(--ivory)">Découvrez nos <em>produits</em></h2>
+      <p class="about-body" style="color:rgba(255,255,255,0.6)">Tisanes, cosmétiques, conseils personnalisés — tout ce
+        dont votre bien-être a besoin, livré chez vous à Dakar.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#products-anchor" class="btn-primary" style="text-decoration:none">Voir la boutique</a>
+        <a href="https://wa.me/221775671821" target="_blank" rel="noopener noreferrer" class="btn-secondary"
+          style="color:var(--ivory);border-color:rgba(255,255,255,0.2)">
+          Commander via WhatsApp &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PANIER ════════════════════════════════════════════════ -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cart-drawer-hdr">
+      <div>
+        <h3>Mon Panier</h3>
+        <div class="cart-hdr-sub" id="cart-hdr-sub">Vide</div>
+      </div>
+      <button class="cart-close" onclick="toggleCart()">&#x2715;</button>
+    </div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-row"><span>Sous-total</span><span id="cart-subtotal">0 FCFA</span></div>
+      <div class="cart-row"><span>Livraison</span><span id="cart-delivery">-</span></div>
+      <div class="cart-row grand"><span>Total</span><span id="cart-total">0 FCFA</span></div>
+      <button class="checkout-btn" onclick="openCheckout()">Passer la commande &rarr;</button>
+    </div>
+  </aside>
+
+  <!-- ══ MODAL PRODUIT ═════════════════════════════════════════ -->
+  <div class="modal product-modal" id="product-modal" role="dialog" aria-modal="true"
+    onclick="if(event.target===this)closeProductModal()">
+    <div class="modal-card product-modal-card">
+      <button class="modal-close-btn" onclick="closeProductModal()">&#x2715;</button>
+      <div class="pm-img-wrap">
+        <span class="pm-tag" id="pm-tag"></span>
+        <span class="pm-badge" id="pm-badge" style="display:none">Nouveauté</span>
+        <img id="pm-img" alt="" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="pm-body">
+        <div class="pm-label" id="pm-cat"></div>
+        <h2 class="pm-name" id="pm-name"></h2>
+        <p class="pm-desc-full" id="pm-desc"></p>
+        <div class="pm-sep"></div>
+        <div class="pm-footer">
+          <div class="pm-price-row">
+            <div>
+              <div class="pm-price" id="pm-price"></div>
+              <div class="pm-price-sub">+ 3 000 FCFA livraison</div>
+            </div>
+          </div>
+          <div class="pm-qty-row">
+            <div class="pm-qty-wrap">
+              <button class="pm-qty-btn" onclick="pmQty(-1)">&#x2212;</button>
+              <span class="pm-qty-n" id="pm-qty-n">1</span>
+              <button class="pm-qty-btn" onclick="pmQty(1)">+</button>
+            </div>
+            <button type="button" id="pm-add-btn" onclick="addFromModal()" aria-label="Ajouter au panier"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MODAL COMMANDE ════════════════════════════════════════ -->
+  <div class="modal" id="checkout-modal" role="dialog" aria-modal="true"
+    onclick="if(event.target===this)document.getElementById('checkout-modal').classList.remove('on')">
+    <div class="modal-card">
+      <h2>Finaliser la commande</h2>
+      <div class="checkout-summary" id="checkout-summary"></div>
+      <form id="checkout-form" onsubmit="confirmOrder(event)" novalidate>
+        <input class="modal-input" id="order-name" type="text" required placeholder="Nom complet *" autocomplete="name">
+        <input class="modal-input" id="order-address" type="text" required placeholder="Adresse de livraison, Dakar *">
+        <input class="modal-input" id="order-phone" type="tel" required placeholder="Téléphone *" autocomplete="tel">
+        <textarea class="modal-input" id="order-note" placeholder="Notes (facultatif)"></textarea>
+        <button type="submit" class="checkout-btn">Confirmer la commande</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="f-brand">
+        <div class="f-logo-name">TISANATURE</div>
+        <div class="f-logo-sub">Beauty &amp; Wellness · Dakar</div>
+        <p class="f-desc">Produits 100% naturels formulés avec soin depuis 2020.</p>
+        <div class="f-socials">
+          <a href="https://wa.me/221775671821" target="_blank" rel="noopener" class="f-social-btn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/t_i_s_a_n_a_t_u_r_e" target="_blank" rel="noopener" class="f-social-btn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Boutique</h4>
+        <ul class="f-links">
+          <li><a href="index.html#products-anchor">Épicerie</a></li>
+          <li><a href="cosmetiques.html">Cosmétiques</a></li>
+          <li><a href="account.html">Mes commandes</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Infos</h4>
+        <ul class="f-links">
+          <li><a href="about.html">À Propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Confidentialité</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Compte</h4>
+        <ul class="f-links">
+          <li><a href="login.html">Connexion</a></li>
+          <li><a href="signup.html">S'inscrire</a></li>
+          <li><a href="account.html">Mon espace</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TISANATURE — Tous droits réservés</p>
+      <p>Conçu avec soin à Dakar, Sénégal</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/csrf.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/script.js?v=5"></script>
+  <script src="assets/js/chat_widget.js"></script>
+  <script src="assets/js/redesign_v2.js?v=5"></script>
+  <script>if (typeof checkAuth === "function") checkAuth();</script>
+</body>
+
+</html>

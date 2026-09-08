@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Connexion à votre espace TISANATURE — Gérez vos commandes, suivez vos livraisons.">
+<meta name="theme-color" content="#0D2218">
+<title>Connexion — TISANATURE</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500;600&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<!-- Vérification session : redirect si déjà connecté -->
+<script>
+  (function () {
+    fetch('api/account.php', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && d.success) {
+          /* Déjà connecté → aller directement à l'espace client */
+          window.location.replace('account.html');
+        }
+      })
+      .catch(function () { /* pas de session, on reste sur login */ });
+  })();
+</script>
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- VISUEL GAUCHE -->
+  <div class="auth-visual" aria-hidden="true">
+    <div class="auth-visual-grid"></div>
+    <div class="auth-visual-logo">
+      <div class="auth-visual-logo-name">TISANATURE</div>
+      <div class="auth-visual-logo-sub">Beauty &amp; Wellness · Dakar</div>
+    </div>
+    <div class="auth-visual-content">
+      <h2 class="auth-visual-title">Bienvenue<br>dans votre <em>espace</em></h2>
+      <div class="auth-visual-line"></div>
+      <p class="auth-visual-body">Gérez vos commandes, suivez vos livraisons et accédez à des offres exclusives réservées à nos membres.</p>
+      <div class="auth-visual-badges">
+        <span class="auth-visual-badge">Suivi de commandes</span>
+        <span class="auth-visual-badge">Offres exclusives</span>
+        <span class="auth-visual-badge">Historique d'achats</span>
+        <!-- <span class="auth-visual-badge">100% Sécurisé</span> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAIRE DROIT -->
+  <div class="auth-form-side">
+    <div class="auth-form-header">
+      <nav class="page-breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Connexion</span>
+      </nav>
+      <h1 class="auth-form-title">Se connecter à<br><em>votre compte</em></h1>
+      <p class="auth-form-sub">Pas encore de compte ? <a href="signup.html" style="color:var(--fern);font-weight:600;text-decoration:none">Créer un compte</a></p>
+    </div>
+
+    <!-- Bouton Google -->
+    <div style="display:flex;justify-content:center">
+      <button class="auth-social-btn" type="button" style="max-width:320px;width:100%" onclick="alert('Connexion Google à intégrer')">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Continuer avec Google
+      </button>
+    </div>
+
+    <div class="auth-divider" aria-hidden="true">
+      <div class="auth-divider-line"></div>
+      <span class="auth-divider-text">ou avec votre e-mail</span>
+      <div class="auth-divider-line"></div>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="login-email">Adresse e-mail</label>
+        <input class="form-input" id="login-email" type="email" required
+               placeholder="vous@exemple.com" autocomplete="email"
+               aria-required="true" aria-describedby="login-email-error">
+        <span class="form-error-msg" id="login-email-error" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="login-pwd" style="display:flex;justify-content:space-between;align-items:center">
+          Mot de passe
+          <a href="forgot-password.html" style="font-size:0.68rem;color:var(--fern);font-weight:500;text-decoration:none;letter-spacing:0">Mot de passe oublié&nbsp;?</a>
+        </label>
+        <div class="input-group">
+          <input class="form-input" id="login-pwd" type="password" required
+                 placeholder="Votre mot de passe" autocomplete="current-password"
+                 aria-required="true" aria-describedby="login-pwd-error">
+          <button type="button" class="input-group-toggle" onclick="togglePwd(this,'login-pwd')" aria-label="Afficher le mot de passe">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <span class="form-error-msg" id="login-pwd-error" role="alert"></span>
+      </div>
+      <div class="form-check" style="margin-bottom:1.5rem">
+        <input type="checkbox" id="login-remember">
+        <label for="login-remember" class="form-check-label">Se souvenir de moi sur cet appareil</label>
+      </div>
+      <button type="submit" class="form-submit">Se connecter</button>
+    </form>
+
+    <div class="auth-footer-note">
+      Pas encore membre ? <a href="signup.html">Créer un compte gratuitement</a>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)">
+      <p style="font-size:0.68rem;color:var(--text-faint);line-height:1.8">
+        En vous connectant, vous acceptez nos
+        <a href="terms.html" style="color:var(--text-faint);text-decoration:underline">Conditions générales</a>
+        et notre <a href="privacy.html" style="color:var(--text-faint);text-decoration:underline">Politique de confidentialité</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/csrf.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

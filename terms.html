@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conditions Générales de Vente TISANATURE — Modalités de commande, livraison, retours et paiement à Dakar, Sénégal.">
+<meta name="theme-color" content="#1C3D28">
+<title>Conditions Générales — TISANATURE</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Karla:wght@300;400;500;600;700;800&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/redesign_v2.css?v=5">
+<!-- Styles spécifiques CGV déplacés dans pages.css -->
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee-modern" aria-hidden="true">
+  <div class="marquee-modern-track">
+    <span>L I V R A I S O N &middot; D A K A R</span><span>&middot;</span>
+    <span>S A T I S F A C T I O N &middot; G A R A N T I E</span><span>&middot;</span>
+    <span>P A I E M E N T &middot; À &middot; L A &middot; L I V R A I S O N</span><span>&middot;</span>
+    <span>T I S A N A T U R E</span><span>&middot;</span>
+    <span>L I V R A I S O N &middot; D A K A R</span><span>&middot;</span>
+    <span>S A T I S F A C T I O N &middot; G A R A N T I E</span><span>&middot;</span>
+    <span>P A I E M E N T &middot; À &middot; L A &middot; L I V R A I S O N</span><span>&middot;</span>
+    <span>T I S A N A T U R E</span><span>&middot;</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="TISANATURE accueil">
+      <div class="nav-logo-name">TISANATURE</div>
+      <div class="nav-logo-sub">Santé & Bien-être · Dakar</div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#products-anchor">Épicerie</a></li>
+      <li><a href="cosmetiques.html">Cosmétiques</a></li>
+      <li><a href="index.html#services-section">Services</a></li>
+      <li><a href="about.html">À Propos</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:+221775671821">+221 77 567 1821</a>
+      <a href="login.html" id="nav-auth-btn">Connexion</a>
+      <button class="nav-cart" onclick="toggleCart()" aria-label="Panier" id="cart-btn">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 01-8 0" />
+        </svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu" id="burger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul role="list">
+      <li><a href="index.html#products-anchor" onclick="toggleMenu()">Épicerie</a></li>
+      <li><a href="cosmetiques.html" onclick="toggleMenu()">Cosmétiques</a></li>
+      <li><a href="index.html#services-section" onclick="toggleMenu()">Services</a></li>
+      <li><a href="about.html">À Propos</a></li>
+      <li id="mobile-auth-links-wrapper">
+        <ul id="mobile-auth-links">
+          <li><a href="login.html">Connexion</a></li>
+          <li><a href="signup.html">S'inscrire</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero foody-style" aria-label="Conditions Générales de Vente">
+  <div class="page-hero-inner">
+    <nav class="page-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Conditions Générales</span>
+    </nav>
+    <div class="page-hero-label">
+      <span class="label-dot" aria-hidden="true"></span> Légal &amp; Transparence
+    </div>
+    <h1 class="hero-title">Conditions<br><em>Générales de Vente</em></h1>
+    <p class="hero-subtitle">Des conditions claires et équitables pour une relation de confiance avec chaque client TISANATURE.</p>
+  </div>
+</section>
+
+<!-- CONTENU -->
+<!-- FIX : le layout est maintenant géré via CSS (@media) dans le <head>,
+     ce qui évite le flash de colonne vide et le besoin de JS pour afficher la sidebar -->
+<div id="cgv-layout">
+
+  <!-- TABLE DES MATIÈRES (sticky) -->
+  <aside id="toc-aside" class="toc-sidebar reveal-left">
+    <div class="toc-card">
+      <div class="toc-title">Sommaire</div>
+      <nav aria-label="Table des matières">
+        <ul class="toc-list">
+          <li><a href="#art1">1. Objet</a></li>
+          <li><a href="#art2">2. Produits</a></li>
+          <li><a href="#art3">3. Commandes</a></li>
+          <li><a href="#art4">4. Prix</a></li>
+          <li><a href="#art5">5. Paiement</a></li>
+          <li><a href="#art6">6. Livraison</a></li>
+          <li><a href="#art7">7. Retours</a></li>
+          <li><a href="#art8">8. Garanties</a></li>
+          <li><a href="#art9">9. Propriété intellectuelle</a></li>
+          <li><a href="#art10">10. Litiges</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="prose reveal">
+    <p class="last-updated">Dernière mise à jour : 1er janvier 2026</p>
+
+    <p class="intro">Les présentes conditions générales de vente régissent l'ensemble des transactions entre TISANATURE et ses clients. En passant commande, vous acceptez intégralement ces conditions.</p>
+
+    <h2 id="art1">Article 1 — Objet et champ d'application</h2>
+    <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les commandes passées auprès de TISANATURE, que ce soit via notre site internet, notre WhatsApp ou tout autre canal de vente. Elles prévalent sur tout autre document.</p>
+
+    <h2 id="art2">Article 2 — Produits</h2>
+    <p>TISANATURE propose une gamme de produits naturels artisanaux comprenant des tisanes bien-être et des cosmétiques. Les produits sont présentés avec leurs caractéristiques essentielles sur notre site. TISANATURE se réserve le droit de modifier la gamme de produits sans préavis.</p>
+    <div class="highlight-box">
+      <p>Tous nos produits sont 100% naturels et artisanaux. Ils ne contiennent pas de conservateurs artificiels ni de produits chimiques nocifs. Pour les produits alimentaires (tisanes), consultez un professionnel de santé en cas de doute sur les contre-indications.</p>
+    </div>
+    <p>En raison du caractère artisanal de nos produits, de légères variations de couleur, texture ou conditionnement sont possibles d'un lot à l'autre. Ces variations ne constituent pas un défaut.</p>
+
+    <h2 id="art3">Article 3 — Commandes</h2>
+    <p>Les commandes peuvent être passées :</p>
+    <ul>
+      <li>Directement sur notre site web via le panier en ligne.</li>
+      <li>Via WhatsApp au +221 77 567 1821.</li>
+      <li>Par téléphone au +221 77 567 1821.</li>
+    </ul>
+    <p>La commande est considérée comme définitive dès la confirmation par notre équipe. TISANATURE se réserve le droit de refuser ou d'annuler une commande en cas de rupture de stock, d'informations incorrectes ou de tout motif légitime, avec remboursement intégral si paiement effectué.</p>
+
+    <h2 id="art4">Article 4 — Prix</h2>
+    <p>Tous les prix sont indiqués en Francs CFA (FCFA), toutes taxes comprises. Les frais de livraison sont indiqués séparément lors du processus de commande. TISANATURE se réserve le droit de modifier ses prix à tout moment. Les prix applicables sont ceux en vigueur au moment de la validation de la commande.</p>
+
+    <h2 id="art5">Article 5 — Modalités de paiement</h2>
+    <p>Les modalités de paiement disponibles sont :</p>
+    <ul>
+      <li><strong>Paiement à la livraison</strong> : en espèces lors de la réception de votre commande (option principale).</li>
+      <li><strong>Wave / Orange Money</strong> : virement mobile selon les instructions fournies lors de la confirmation.</li>
+      <li><strong>Virement bancaire</strong> : coordonnées fournies sur demande.</li>
+    </ul>
+    <p>En cas de non-paiement à la livraison sans motif valable, TISANATURE se réserve le droit de suspendre les futures commandes du client concerné.</p>
+
+    <h2 id="art6">Article 6 — Livraison</h2>
+    <h3>Zone de livraison</h3>
+    <p>TISANATURE livre actuellement dans la région de Dakar et sa périphérie (Pikine, Guédiawaye, Rufisque, Thiès sur demande). Pour toute livraison hors zone, contactez-nous préalablement.</p>
+    <h3>Frais et délais</h3>
+    <ul>
+      <li>Frais de livraison fixes : <strong>3 000 FCFA</strong> par commande.</li>
+      <li>Délai de livraison : 24 à 72 heures ouvrables selon votre localisation.</li>
+      <li>La livraison est effectuée du lundi au samedi, de 8h00 à 19h00.</li>
+    </ul>
+    <h3>Suivi et réception</h3>
+    <p>Un livreur vous contactera par téléphone avant de se présenter. Il est de votre responsabilité de vous assurer d'être disponible ou de déléguer la réception. En cas d'absence, une deuxième tentative sera planifiée.</p>
+
+    <h2 id="art7">Article 7 — Retours et réclamations</h2>
+    <p>En raison du caractère artisanal et naturel de nos produits, les retours sont acceptés uniquement dans les cas suivants :</p>
+    <ul>
+      <li>Produit endommagé à la livraison (signalement dans les 24h avec photo à l'appui).</li>
+      <li>Produit ne correspondant pas à la commande.</li>
+      <li>Défaut de fabrication avéré.</li>
+    </ul>
+    <p>Pour les produits alimentaires (tisanes), les retours ne sont pas acceptés une fois le produit ouvert, sauf défaut de fabrication. Pour les cosmétiques, les retours ne sont pas acceptés pour des raisons d'hygiène une fois ouverts.</p>
+    <p>Pour toute réclamation, contactez-nous dans les <strong>48 heures</strong> suivant la réception via WhatsApp avec des photos du produit concerné.</p>
+
+    <h2 id="art8">Article 8 — Garanties et responsabilité</h2>
+    <p>TISANATURE garantit que ses produits sont fabriqués à partir d'ingrédients naturels de qualité. En revanche, les résultats peuvent varier selon les individus. TISANATURE ne saurait être tenu responsable d'effets secondaires résultant d'une utilisation non conforme aux instructions ou d'une allergie non déclarée à un ingrédient.</p>
+    <div class="highlight-box">
+      <p>Si vous avez des allergies connues ou des conditions médicales particulières, consultez votre médecin avant l'utilisation de nos produits. La liste complète des ingrédients est disponible sur demande.</p>
+    </div>
+
+    <h2 id="art9">Article 9 — Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu du site TISANATURE (marque, logo, textes, images, formulations) est protégé par les droits de propriété intellectuelle. Toute reproduction, même partielle, est strictement interdite sans autorisation écrite préalable.</p>
+
+    <h2 id="art10">Article 10 — Litiges et droit applicable</h2>
+    <p>En cas de litige, nous vous invitons à nous contacter en premier lieu afin de trouver une solution amiable. À défaut d'accord, les présentes CGV sont régies par le droit sénégalais. Tout litige sera soumis à la compétence exclusive des tribunaux de Dakar.</p>
+
+    <h2>Article 11 — Modifications des CGV</h2>
+    <p>TISANATURE se réserve le droit de modifier ces CGV à tout moment. Les nouvelles conditions s'appliquent aux commandes passées après leur mise en ligne. La version en vigueur est celle affichée sur le site à la date de votre commande.</p>
+  </main>
+</div>
+
+<!-- LIENS LÉGAUX -->
+<footer class="legal-footer-nav">
+  <div class="legal-nav-container">
+    <a href="privacy.html" class="legal-nav-card shadow-sm">
+      <div class="legal-nav-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="legal-nav-text">
+        <span class="legal-nav-label">Données personnelles</span>
+        <span class="legal-nav-title">Politique de confidentialité</span>
+      </div>
+    </a>
+    <a href="contact.html" class="legal-nav-card shadow-sm">
+      <div class="legal-nav-icon">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <div class="legal-nav-text">
+        <span class="legal-nav-label">Besoin d'aide ?</span>
+        <span class="legal-nav-title">Contacter notre équipe</span>
+      </div>
+    </a>
+  </div>
+</footer>
+
+<!-- ══ PANIER ════════════════════════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="cart-drawer-hdr">
+    <div>
+      <h3>Mon Panier</h3>
+      <div class="cart-hdr-sub" id="cart-hdr-sub">Vide</div>
+    </div>
+    <button class="cart-close" onclick="toggleCart()">&#x2715;</button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer">
+    <div class="cart-row"><span>Sous-total</span><span id="cart-subtotal">0 FCFA</span></div>
+    <div class="cart-row"><span>Livraison</span><span id="cart-delivery">-</span></div>
+    <div class="cart-row grand"><span>Total</span><span id="cart-total">0 FCFA</span></div>
+    <button class="checkout-btn" onclick="openCheckout()">Passer la commande &rarr;</button>
+  </div>
+</aside>
+
+<!-- ══ MODAL PRODUIT ═════════════════════════════════════════ -->
+<div class="modal product-modal" id="product-modal" role="dialog" aria-modal="true"
+  onclick="if(event.target===this)closeProductModal()">
+  <div class="modal-card product-modal-card">
+    <button class="modal-close-btn" onclick="closeProductModal()">&#x2715;</button>
+    <div class="pm-img-wrap">
+      <span class="pm-tag" id="pm-tag"></span>
+      <span class="pm-badge" id="pm-badge" style="display:none">Nouveauté</span>
+      <img id="pm-img" alt="" loading="lazy" onerror="this.style.opacity='0'">
+    </div>
+    <div class="pm-body">
+      <div class="pm-label" id="pm-cat"></div>
+      <h2 class="pm-name" id="pm-name"></h2>
+      <p class="pm-desc-full" id="pm-desc"></p>
+      <div class="pm-sep"></div>
+      <div class="pm-footer">
+        <div class="pm-price-row">
+          <div>
+            <div class="pm-price" id="pm-price"></div>
+            <div class="pm-price-sub">+ 3 000 FCFA livraison</div>
+          </div>
+        </div>
+        <div class="pm-qty-row">
+          <div class="pm-qty-wrap">
+            <button class="pm-qty-btn" onclick="pmQty(-1)">&#x2212;</button>
+            <span class="pm-qty-n" id="pm-qty-n">1</span>
+            <button class="pm-qty-btn" onclick="pmQty(1)">+</button>
+          </div>
+            <button type="button" id="pm-add-btn" onclick="addFromModal()" aria-label="Ajouter au panier"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL COMMANDE ════════════════════════════════════════ -->
+<div class="modal" id="checkout-modal" role="dialog" aria-modal="true"
+  onclick="if(event.target===this)document.getElementById('checkout-modal').classList.remove('on')">
+  <div class="modal-card">
+    <h2>Finaliser la commande</h2>
+    <div class="checkout-summary" id="checkout-summary"></div>
+    <form id="checkout-form" onsubmit="confirmOrder(event)" novalidate>
+      <input class="modal-input" id="order-name" type="text" required placeholder="Nom complet *" autocomplete="name">
+      <input class="modal-input" id="order-address" type="text" required placeholder="Adresse de livraison, Dakar *">
+      <input class="modal-input" id="order-phone" type="tel" required placeholder="Téléphone * (ex: 77 567 1821)">
+      <textarea class="modal-input" id="order-note" placeholder="Note (optionnel)" rows="2"></textarea>
+      <button type="submit" id="checkout-submit-btn" class="checkout-btn">Confirmer &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="alert"></div>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">
+      <div class="f-logo-name">TISANATURE</div>
+      <div class="f-logo-sub">Beauty &amp; Wellness · Dakar</div>
+      <p class="f-desc">Produits 100% naturels formulés avec soin depuis 2020.</p>
+      <div class="f-socials">
+        <a href="https://wa.me/221775671821" target="_blank" rel="noopener" class="f-social-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/t_i_s_a_n_a_t_u_r_e" target="_blank" rel="noopener" class="f-social-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Boutique</h4>
+      <ul class="f-links">
+        <li><a href="index.html#products-anchor">Épicerie</a></li>
+        <li><a href="cosmetiques.html">Cosmétiques</a></li>
+        <li><a href="account.html">Mes commandes</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Infos</h4>
+      <ul class="f-links">
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Confidentialité</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Compte</h4>
+      <ul class="f-links">
+        <li><a href="login.html">Connexion</a></li>
+        <li><a href="signup.html">S'inscrire</a></li>
+        <li><a href="account.html">Mon espace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 TISANATURE — Tous droits réservés</p>
+    <p>Conçu avec soin à Dakar, Sénégal</p>
+  </div>
+</footer>
+
+<script src="assets/js/csrf.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/script.js?v=5"></script>
+<script src="assets/js/chat_widget.js"></script>
+<script src="assets/js/redesign_v2.js?v=5"></script>
+<script>if (typeof checkAuth === "function") checkAuth();</script>
+<!-- FIX : suppression du bloc JS qui gérait l'affichage de la TOC via display:none/block.
+     Le layout est maintenant entièrement géré par le CSS responsive dans le <head>,
+     ce qui évite : le flash de colonne vide, la double colonne sur mobile,
+     et l'absence de TOC si JS est désactivé. -->
+     
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>TISANATURE — Espace Administration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Karla:wght@300;400;500;600;700;800&family=Cormorant:ital,wght@1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+
+<!-- ══ ÉCRAN DE CONNEXION ══ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-leaf" aria-hidden="true">🌿</div>
+    <div class="login-logo">TISANATURE</div>
+    <div class="login-sub">Espace d'administration</div>
+    <div id="login-error" class="login-error" role="alert" aria-live="assertive"></div>
+    <form id="login-form" novalidate>
+      <div class="login-field">
+        <label for="login-user">Adresse e-mail</label>
+        <input id="login-user" type="email" placeholder="admin@tisanature.sn"
+               autocomplete="username" required aria-required="true">
+      </div>
+      <div class="login-field">
+        <label for="login-pass">Mot de passe</label>
+        <input id="login-pass" type="password" placeholder="••••••••"
+               autocomplete="current-password" required aria-required="true">
+      </div>
+      <button id="login-btn" class="login-btn" type="submit">Se connecter</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══ APP ══ -->
+<div id="app">
+  <div class="app-inner">
+
+    <!-- ── SIDEBAR ─────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar" aria-label="Navigation administration">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon" aria-hidden="true">🌿</div>
+        <div class="sidebar-brand-name">TISANATURE</div>
+      </div>
+
+      <div class="nav-section-label" id="nav-label-principal">Principal</div>
+      <nav aria-labelledby="nav-label-principal">
+        <button type="button" class="nav-item active" data-page="dashboard" onclick="goPage('dashboard',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          Tableau de bord
+        </button>
+        <button type="button" class="nav-item" data-page="orders" onclick="goPage('orders',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Commandes
+          <span class="nav-badge" id="nb-orders" aria-label="nouvelles commandes">0</span>
+        </button>
+        <button type="button" class="nav-item" data-page="products" onclick="goPage('products',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          Produits
+        </button>
+        <button type="button" class="nav-item" data-page="clients" onclick="goPage('clients',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Clients
+        </button>
+        <button type="button" class="nav-item" data-page="messages" onclick="goPage('messages',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Messagerie
+          <span class="nav-badge" id="nb-messages" aria-label="messages non lus">0</span>
+        </button>
+      </nav>
+
+      <div class="nav-section-label" id="nav-label-config">Configuration</div>
+      <nav aria-labelledby="nav-label-config">
+        <button type="button" class="nav-item" data-page="settings" onclick="goPage('settings',this)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Paramètres
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-admin-row">
+          <div class="sidebar-admin-av" id="sidebar-admin-av" aria-hidden="true">A</div>
+          <div>
+            <div class="sidebar-admin-name" id="sidebar-admin-name">Admin</div>
+            <div class="sidebar-admin-role" id="sidebar-admin-role">Administrateur</div>
+          </div>
+        </div>
+        <button type="button" class="btn-logout" onclick="logout()">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Déconnexion
+        </button>
+      </div>
+    </aside>
+
+    <!-- ── MAIN AREA ────────────────────────────────────── -->
+    <div class="main-area">
+      <header class="topbar">
+        <button type="button" class="btn-menu-mobile" id="btn-menu-mobile" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-breadcrumb">
+          <div class="topbar-title" id="page-title">Tableau de bord</div>
+          <span class="topbar-sep" aria-hidden="true">·</span>
+          <div class="topbar-sub" id="page-sub">Aperçu de l'Activité</div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-time" id="topbar-clock" aria-hidden="true">—</div>
+          <div class="topbar-status" aria-label="Statut : en ligne">
+            <div class="topbar-status-dot" aria-hidden="true"></div>
+            En ligne
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+
+        <!-- Alerte nouvelle commande -->
+        <div id="new-order-alert" role="alert" aria-live="assertive">
+          <span class="icon" aria-hidden="true">🔔</span>
+          <span id="new-order-alert-text"></span>
+          <button type="button" class="alert-close"
+                  onclick="document.getElementById('new-order-alert').style.display='none'"
+                  aria-label="Fermer l'alerte">✕</button>
+        </div>
+
+        <!-- ══ PAGE : DASHBOARD ══ -->
+        <div id="page-dashboard" class="page active">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-top"><div class="kpi-label">Chiffre d'Affaires</div><div class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div></div>
+              <div class="kpi-value" id="kpi-revenue" aria-live="polite">—</div>
+              <div class="kpi-sub">Aujourd'hui</div>
+            </div>
+            <div class="kpi-card accent-amber">
+              <div class="kpi-top"><div class="kpi-label">En attente</div><div class="kpi-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+              <div class="kpi-value" id="kpi-pending" aria-live="polite">—</div>
+              <div class="kpi-sub">Commandes à traiter</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-top"><div class="kpi-label">Commandes / jour</div><div class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+              <div class="kpi-value" id="kpi-orders" aria-live="polite">—</div>
+              <div class="kpi-sub">Aujourd'hui</div>
+            </div>
+            <div class="kpi-card accent-blue">
+              <div class="kpi-top"><div class="kpi-label">Clients uniques</div><div class="kpi-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div></div>
+              <div class="kpi-value" id="kpi-clients" aria-live="polite">—</div>
+              <div class="kpi-sub">Total cumulé</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-top"><div class="kpi-label">Revenu Global</div><div class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div></div>
+              <div class="kpi-value" id="kpi-revenue-m" aria-live="polite">—</div>
+              <div class="kpi-sub">Cumul historique</div>
+            </div>
+            <div class="kpi-card accent-amber">
+              <div class="kpi-top"><div class="kpi-label">Messages non lus</div><div class="kpi-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div>
+              <div class="kpi-value" id="kpi-msgs" aria-live="polite">—</div>
+              <div class="kpi-sub">En attente de réponse</div>
+            </div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="dashboard-main">
+              <div class="chart-card">
+                <div class="chart-hdr">
+                  <div class="chart-title">Évolution des revenus</div>
+                  <div class="chart-period" role="group" aria-label="Période du graphique">
+                    <button type="button" class="period-btn active" onclick="switchChart('7d',this)">7j</button>
+                    <button type="button" class="period-btn"        onclick="switchChart('30d',this)">30j</button>
+                  </div>
+                </div>
+                <canvas id="revenue-chart" height="130" aria-label="Graphique de revenu" role="img"></canvas>
+              </div>
+              <div>
+                <div class="section-hdr">
+                  <div class="section-title">Commandes récentes</div>
+                  <div class="section-actions">
+                    <button type="button" class="btn-ghost" onclick="goPage('orders',document.querySelector('[data-page=orders]'))">
+                      Tout voir <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th scope="col">Réf.</th><th scope="col">Client</th><th scope="col">Total</th><th scope="col">Statut</th><th scope="col">Date</th></tr></thead>
+                    <tbody id="recent-orders-body"><tr><td colspan="5" class="td-empty">Chargement…</td></tr></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-side">
+              <div class="chart-card">
+                <div class="chart-hdr" style="margin-bottom:12px"><div class="chart-title">Statuts commandes</div></div>
+                <div class="status-dist" id="status-dist"><div style="color:var(--text3);font-size:.78rem">Chargement…</div></div>
+              </div>
+              <div class="activity-card">
+                <div class="chart-hdr" style="margin-bottom:0;padding-bottom:10px;border-bottom:1px solid var(--border)"><div class="chart-title">Activité récente</div></div>
+                <div id="activity-feed" aria-live="polite"><div style="color:var(--text3);font-size:.78rem;padding:12px 0">Chargement…</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ PAGE : COMMANDES ══ -->
+        <div id="page-orders" class="page">
+          <div class="section-hdr">
+            <div class="section-title">Commandes</div>
+            <span class="section-count" id="orders-count" aria-live="polite">0</span>
+            <div class="section-actions">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input class="search-input" type="search" placeholder="Réf., client, tél…"
+                       aria-label="Rechercher une commande" oninput="searchOrders(this.value)">
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap" role="group" aria-label="Filtrer par statut">
+            <button type="button" class="filter-btn active" data-status="all"         onclick="filterOrders('all',this)">Tout</button>
+            <button type="button" class="filter-btn"        data-status="new"         onclick="filterOrders('new',this)">⏳ En attente</button>
+            <button type="button" class="filter-btn"        data-status="confirmed"   onclick="filterOrders('confirmed',this)">✅ Confirmée</button>
+            <button type="button" class="filter-btn"        data-status="in_delivery" onclick="filterOrders('in_delivery',this)">🚚 En livraison</button>
+            <button type="button" class="filter-btn"        data-status="delivered"   onclick="filterOrders('delivered',this)">📦 Livrée</button>
+            <button type="button" class="filter-btn"        data-status="cancelled"   onclick="filterOrders('cancelled',this)">❌ Annulée</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Réf.</th><th scope="col">Client</th><th scope="col">Articles</th><th scope="col">Total</th><th scope="col">Statut</th><th scope="col">Date</th><th scope="col">Actions</th></tr></thead>
+              <tbody id="orders-tbody"><tr><td colspan="7" class="td-empty">Chargement…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ══ PAGE : PRODUITS ══ -->
+        <div id="page-products" class="page">
+          <div class="section-hdr">
+            <div class="section-title">Produits</div>
+            <span class="section-count" id="products-count" aria-live="polite">0</span>
+            <div class="section-actions">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input class="search-input" type="search" placeholder="Nom du produit…"
+                       aria-label="Rechercher un produit" oninput="searchProducts(this.value)">
+              </div>
+              <button type="button" class="btn-primary" onclick="openProductDrawer()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Nouveau produit
+              </button>
+            </div>
+          </div>
+          <div style="display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap;" role="group" aria-label="Filtrer par catégorie">
+            <button type="button" class="filter-btn active" data-cat="all"         onclick="filterProducts('all',this)">Tout</button>
+            <button type="button" class="filter-btn"        data-cat="epicerie"    onclick="filterProducts('epicerie',this)">🌿 Épicerie</button>
+            <button type="button" class="filter-btn"        data-cat="tisanes"     onclick="filterProducts('tisanes',this)">— Tisanes</button>
+            <button type="button" class="filter-btn"        data-cat="cosmetiques" onclick="filterProducts('cosmetiques',this)">✨ Cosmétiques</button>
+            <button type="button" class="filter-btn"        data-cat="services"    onclick="filterProducts('services',this)">🛎️ Services</button>
+          </div>
+          <div class="products-grid" id="products-grid" aria-live="polite"><div class="empty-state">Chargement…</div></div>
+        </div>
+
+        <!-- ══ PAGE : CLIENTS ══ -->
+        <div id="page-clients" class="page">
+          <div class="section-hdr">
+            <div class="section-title">Clients</div>
+            <span class="section-count" id="clients-count" aria-live="polite">0</span>
+            <div class="section-actions">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input class="search-input" type="search" placeholder="Nom ou téléphone…"
+                       aria-label="Rechercher un client" oninput="searchClients(this.value)">
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Client</th><th scope="col">Téléphone</th><th scope="col">Ville / Adresse</th><th scope="col">Commandes</th><th scope="col">Total dépensé</th></tr></thead>
+              <tbody id="clients-tbody"><tr><td colspan="5" class="td-empty">Chargement…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ══ PAGE : MESSAGERIE ══ -->
+        <div id="page-messages" class="page">
+          <div class="section-hdr" style="margin-bottom:14px">
+            <div class="section-title">Messagerie</div>
+            <span class="section-count" id="msg-conv-count" style="display:none" aria-live="polite">0</span>
+          </div>
+          <div class="msg-layout">
+            <div class="msg-sidebar" role="navigation" aria-label="Conversations">
+              <div class="msg-sidebar-hdr">Conversations</div>
+              <div id="msg-conv-list"><div style="padding:24px 16px;text-align:center;color:var(--text3);font-size:.78rem">Aucun message</div></div>
+            </div>
+            <div class="msg-main" aria-label="Fil de messages">
+              <div id="msg-chat-hdr">
+                <div>
+                  <div style="font-weight:700;color:var(--cream);font-size:.9rem" id="msg-chat-name">—</div>
+                  <div style="font-size:.7rem;color:var(--text3)" id="msg-chat-phone">—</div>
+                </div>
+              </div>
+              <div id="msg-chat-msgs" role="log" aria-live="polite" aria-label="Messages"></div>
+              <div id="msg-empty-state">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <span>Sélectionnez une conversation</span>
+              </div>
+              <div id="msg-chat-reply">
+                <div class="msg-reply-row">
+                  <textarea id="msg-reply-input" placeholder="Écrire une réponse…" rows="1"
+                    aria-label="Écrire une réponse"
+                    onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();msgSendReply();}"
+                    oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+                  <button type="button" class="btn-primary" onclick="msgSendReply()"
+                          style="align-self:flex-end;padding:9px 12px"
+                          aria-label="Envoyer le message">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ PAGE : PARAMÈTRES ══ -->
+        <div id="page-settings" class="page">
+          <div class="section-hdr"><div class="section-title">Paramètres</div></div>
+          <div class="settings-grid">
+            <div class="settings-card">
+              <div class="settings-card-hdr">
+                <div class="settings-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+                <h3>Informations du site</h3>
+              </div>
+              <form onsubmit="saveSettings(event)" novalidate>
+                <div class="form-field"><label for="set-site-name">Nom du site</label><input type="text" id="set-site-name"></div>
+                <div class="form-row">
+                  <div class="form-field"><label for="set-phone">Téléphone</label><input type="tel" id="set-phone" placeholder="+221 7X XXX XX XX"></div>
+                  <div class="form-field"><label for="set-delivery-fee">Frais de livraison (FCFA)</label><input type="number" id="set-delivery-fee" min="0" step="100"></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><label for="set-whatsapp">WhatsApp</label><input type="text" id="set-whatsapp" placeholder="221XXXXXXXXX"></div>
+                  <div class="form-field"><label for="set-instagram">Instagram</label><input type="text" id="set-instagram" placeholder="@tisanature"></div>
+                </div>
+                <div class="form-field"><label for="set-address">Adresse</label><input type="text" id="set-address" placeholder="Dakar, Sénégal"></div>
+                <button type="submit" class="btn-save">Sauvegarder les paramètres</button>
+              </form>
+            </div>
+            <div class="settings-card">
+              <div class="settings-card-hdr">
+                <div class="settings-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+                <h3>Changer le mot de passe</h3>
+              </div>
+              <form onsubmit="changePassword(event)" novalidate>
+                <div class="form-field"><label for="set-pass-current">Mot de passe actuel</label><input type="password" id="set-pass-current" autocomplete="current-password"></div>
+                <div class="form-field"><label for="set-pass-new">Nouveau mot de passe</label><input type="password" id="set-pass-new" minlength="8" autocomplete="new-password"></div>
+                <div class="form-field"><label for="set-pass-confirm">Confirmer le nouveau mot de passe</label><input type="password" id="set-pass-confirm" minlength="8" autocomplete="new-password"></div>
+                <button type="submit" class="btn-save">Modifier le mot de passe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PRODUCT DRAWER ══ -->
+<div id="drawer-overlay" onclick="closeProductDrawer()" aria-hidden="true"></div>
+<aside id="product-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <div class="drawer-header">
+    <div class="drawer-header-left">
+      <div class="drawer-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      </div>
+      <div>
+        <div id="drawer-title">Nouveau produit</div>
+        <div id="drawer-sub">Ajouter au catalogue TISANATURE</div>
+      </div>
+    </div>
+    <button type="button" class="drawer-close" onclick="closeProductDrawer()" aria-label="Fermer le tiroir produit">✕</button>
+  </div>
+  <div id="drawer-edit-banner" aria-live="polite">
+    <div class="drawer-edit-banner-dot" aria-hidden="true"></div>
+    <div class="drawer-edit-banner-text">Modification : <strong id="drawer-edit-name"></strong></div>
+  </div>
+  <div class="drawer-body">
+    <div class="dp-section">
+      <div class="dp-section-title">Identité du produit</div>
+      <div class="dp-field">
+        <label class="dp-label" for="dp-name">Nom du produit <span class="dp-req" aria-hidden="true">*</span></label>
+        <input id="dp-name" class="dp-input" type="text" maxlength="200"
+               placeholder="Ex : Tisane Détox Premium"
+               aria-required="true" oninput="dpOnNameChange()">
+        <span class="dp-slug-hint">Slug : <span id="dp-slug-preview" class="dp-slug-preview">—</span></span>
+      </div>
+      <div class="dp-field">
+        <label class="dp-label" for="dp-category">Catégorie</label>
+        <select id="dp-category" class="dp-input" onchange="dpOnCategoryChange()">
+          <optgroup label="🌿 Épicerie">
+            <option value="epicerie">Alimentaire Général</option>
+            <option value="tisanes">Tisanes</option>
+          </optgroup>
+          <option value="cosmetiques">✨ Cosmétiques / Beauté</option>
+          <option value="services">🛎️ Services</option>
+        </select>
+      </div>
+      <div class="dp-field" id="dp-subcat-row" style="display:none">
+        <label class="dp-label" for="dp-subcategory">Sous-catégorie</label>
+        <select id="dp-subcategory" class="dp-input">
+          <option value="">(Aucune)</option>
+          <option value="peau">Corps & Peau</option>
+          <option value="visage">Visage</option>
+          <option value="cheveux">Cheveux</option>
+        </select>
+      </div>
+      <div class="dp-field">
+        <label class="dp-label" for="dp-desc">Description</label>
+        <textarea id="dp-desc" class="dp-input" rows="3" placeholder="Bienfaits, ingrédients, utilisation…"></textarea>
+      </div>
+    </div>
+    <div class="dp-section">
+      <div class="dp-section-title">Tarification &amp; Stock</div>
+      <div id="dp-price-row" class="dp-field">
+        <label class="dp-label" for="dp-price">Prix (FCFA) <span class="dp-req" id="dp-price-req" aria-hidden="true">*</span></label>
+        <input id="dp-price" class="dp-input" type="number" min="0" step="50"
+               placeholder="Ex : 6 500" aria-required="true" oninput="dpOnPriceChange()">
+      </div>
+      <div class="dp-price-display" aria-live="polite">
+        <span class="dp-price-label">Aperçu du prix affiché</span>
+        <span id="dp-price-val">— FCFA</span>
+      </div>
+      <div class="dp-field dp-stock-wrap">
+        <label class="dp-label" for="dp-stock">Stock disponible</label>
+        <input id="dp-stock" class="dp-input" type="number" min="0" step="1"
+               placeholder="Ex : 50" oninput="dpOnStockChange()">
+        <div class="dp-stock-bar" aria-hidden="true"><div id="dp-stock-fill"></div></div>
+        <div class="dp-stock-meta"><span>Unités en stock</span><span id="dp-stock-val" aria-live="polite">0</span></div>
+      </div>
+    </div>
+    <div class="dp-section">
+      <div class="dp-section-title">Image du produit</div>
+      <div id="dp-current-img-wrap">
+        <img id="dp-current-img" alt="Image actuelle du produit">
+        <div>
+          <div style="font-size:.7rem;color:var(--text2);margin-bottom:2px;font-weight:600">Image actuelle</div>
+          <div id="dp-current-img-lbl"></div>
+        </div>
+      </div>
+      <div id="dp-upload-zone"
+           ondragover="dpDragOver(event)" ondragleave="dpDragLeave()" ondrop="dpDropped(event)"
+           onclick="document.getElementById('dp-img-file').click()"
+           role="button" tabindex="0" aria-label="Zone de dépôt d'image — cliquez ou glissez un fichier"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('dp-img-file').click();}">
+        <div class="dp-upload-icon" aria-hidden="true">🖼️</div>
+        <div class="dp-upload-text">Glissez une image ici ou <span class="dp-upload-btn-link">choisissez un fichier</span></div>
+        <div class="dp-upload-hint">JPG, PNG, WEBP — max 3 Mo</div>
+      </div>
+      <input id="dp-img-file" type="file" accept="image/*" style="display:none"
+             aria-label="Choisir une image" onchange="dpFileSelected(event)">
+      <div id="dp-img-preview">
+        <img id="dp-preview-img" alt="Aperçu de la nouvelle image">
+        <span id="dp-preview-name"></span>
+        <button type="button" class="dp-clear-btn" onclick="dpClearImage()" aria-label="Retirer l'image sélectionnée">✕</button>
+      </div>
+    </div>
+    <div class="dp-section">
+      <div class="dp-section-title">Options de publication</div>
+      <div class="dp-toggle-row">
+        <div class="dp-toggle-card">
+          <div><div class="dp-toggle-label">Produit actif</div><div class="dp-toggle-hint">Visible sur la boutique</div></div>
+          <label class="dp-switch" aria-label="Activer ce produit"><input type="checkbox" id="dp-active" checked><span class="dp-switch-track"></span></label>
+        </div>
+        <div class="dp-toggle-card">
+          <div><div class="dp-toggle-label">Nouveauté</div><div class="dp-toggle-hint">Badge "Nouveau" affiché</div></div>
+          <label class="dp-switch" aria-label="Marquer comme nouveauté"><input type="checkbox" id="dp-new"><span class="dp-switch-track"></span></label>
+        </div>
+        <div class="dp-toggle-card" style="display:none">
+          <div><div class="dp-toggle-label">Vérifié</div><div class="dp-toggle-hint">Visible sur la boutique publique</div></div>
+          <label class="dp-switch" aria-label="Vérifier ce produit"><input type="checkbox" id="dp-verified"><span class="dp-switch-track"></span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <button type="button" id="dp-save-btn" onclick="dpSaveProduct()">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      Enregistrer le produit
+    </button>
+    <button type="button" class="dp-cancel-btn" onclick="closeProductDrawer()">Annuler</button>
+  </div>
+</aside>
+
+<!-- ══ MODAL GÉNÉRIQUE ══ -->
+<div id="generic-modal" class="admin-modal"
+     role="dialog" aria-modal="true" aria-labelledby="generic-modal-heading"
+     onclick="if(event.target===this)closeModal()">
+  <div class="admin-modal-card">
+    <button type="button" class="admin-modal-close" onclick="closeModal()" aria-label="Fermer la fenêtre">✕</button>
+    <div class="modal-body" id="generic-modal-body"></div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div id="admin-toast" class="admin-toast" role="status" aria-live="polite" aria-atomic="true">
+  <span class="toast-icon" aria-hidden="true">✓</span>
+  <span id="admin-toast-msg"></span>
+</div>
+<script src="../assets/js/csrf.js"></script>
+<script src="../assets/js/admin.js"></script>
+  <script>
+    document.getElementById('btn-menu-mobile')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('sidebar')?.classList.toggle('mobile-on');
+    });
+    document.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.remove('mobile-on');
+    });
+    document.getElementById('sidebar')?.addEventListener('click', (e) => e.stopPropagation());
+  </script>
+</body>
+</html>

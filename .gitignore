@@ -1,0 +1,5 @@
+config/db.php
+config/security.php
+config/session.php
+config/tmp/
+config/uploads/
