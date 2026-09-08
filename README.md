@@ -1,19 +1,19 @@
-# 🌿 TISANATURE
+# TISANATURE
 
 Site e-commerce dédié à la vente de tisanes et cosmétiques naturels, avec espace client et espace administrateur complet.
 
-🔗 **GitHub** : https://github.com/omar14faye-collab/Tisanature
-👤 **Auteur** : Oumar Bounkhatab Faye — [github.com/omar14faye-collab](https://github.com/omar14faye-collab)
+ **GitHub** : https://github.com/omar14faye-collab/Tisanature
+ **Auteur** : Oumar Bounkhatab Faye — [github.com/omar14faye-collab](https://github.com/omar14faye-collab)
 
 ---
 
 ## Aperçu
 
-visualisez le site sur Tisanature/screenshots
+visualisez le site avec quelques images dans https://github.com/omar14faye-collab/Tisanature/tree/main/screenshots
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - Catalogue de produits (tisanes, cosmétiques, services) avec catégories et sous-catégories
 - Système de commande avec suivi de statut (nouvelle, confirmée, expédiée, livrée, annulée)
@@ -29,7 +29,7 @@ visualisez le site sur Tisanature/screenshots
 
 ---
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 - **Backend** : PHP
 - **Frontend** : HTML, CSS, JavaScript
@@ -60,7 +60,7 @@ projet3/
 
 ---
 
-## ⚙️ Installation en local
+##  Installation en local
 
 1. Clone le dépôt :
    ```bash
@@ -73,12 +73,12 @@ projet3/
 
 ---
 
-## 🔒 Sécurité
+## Sécurité
 
 Les fichiers contenant des identifiants sensibles (base de données, clés de sécurité, sessions) ainsi que les exports de base de données avec de vraies données clients ne sont **pas inclus** dans ce dépôt, conformément aux bonnes pratiques de sécurité.
 
 ---
 
-## 📄 Licence
+## Licence
 
 Projet personnel — tous droits réservés.
