@@ -3,3 +3,5 @@ config/security.php
 config/session.php
 config/tmp/
 config/uploads/
+sql/tisanature.sql 
+update_tisanature.sql
